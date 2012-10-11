@@ -32,10 +32,12 @@
 </section>
 
 <section>
-  <p>All elements of the map are scaled according to scale-factor</p>
-  <p>Support across all backends (AGG, Cairo etc)</p>
-  <p>Must have if you're planing to print your map</p>
-  <p>You can scale images but you'd better of using SVG's</p>
+  <p>Supported across all backends (AGG, Cairo etc)</p>
+</section>
+
+<section>
+  <p>Supported across all backends (AGG, Cairo etc)</p>
+  <p>Printing, retina display, ???</p>
 </section>
 
 <section style="background-image:url(images/map-scale-factor-1.png);
@@ -64,7 +66,7 @@
 </section>
 
 <section style="background: #222 url(images/dunes.jpg); background-repeat:no-repeat; background-position:center center;">
-  <p>Vertex converters allow constructing efficient rendering pipelines with complex transformations</p>
+  <p>Efficient, flexible rendering pipelines with complex transformations</p>
 </section>
 
 
@@ -107,7 +109,7 @@
   <h1 class="caption">translate(10 10) <br/>and blur</h1>
 </section>
 
-<section style="background: #222 url(images/map-blur-dodge.png); background-repeat:no-repeat; background-position:center center;">
+<section style="background: #222 url(images/horses.jpg); background-repeat:no-repeat; background-position:center center;">
   <h1 class="caption">Image filters</h1>
 </section>
 
@@ -140,6 +142,10 @@
   </ul>
 </section>
 
+<section style="background: #222 url(images/map-blur-dodge.png); background-repeat:no-repeat; background-position:center center;">
+  <h1 class="caption">Blur</h1>
+</section>
+
 <section style="background: #222 url(images/map-emboss.png); background-repeat:no-repeat; background-position:center center;">
   <h1 class="caption">Emboss</h1>
 </section>
@@ -155,14 +161,13 @@
 <section>
 <h2>GeoJSON</h2>
 <pre>
->>> import mapnik
->>> ds = mapnik.Shapefile(file="xxx")
->>> for f in ds.all_features():
->>>     print f.to_geojson()
+>>> f.to_geojson()
 ...
 {"type":"Feature","id":1,
- "geometry": {"type":"Point","coordinates":[-13656028.907841900364,5703798.985656630248]},
-"properties":{"name":"Portland","osm_id":1666626393,"place":"city"}}'
+"geometry": {"type":"Point",
+"coordinates":[-13656028.9,5703798.9]},
+"properties":{"name":"Portland",
+ "osm_id":1666626393,"place":"city"}}'
 </pre>
 </section>
 
