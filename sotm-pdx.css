@@ -13,6 +13,12 @@ a:not(:hover) {
   text-decoration: none;
 }
 
+h1 { font-size: 90px; }
+h2 { font-size: 75px; }
+h3 { font-size: 70px; }
+p { font-size: 60px; }
+ul { font-size: 55px; }
+
 .stack {
   background: #222;
   background-repeat:no-repeat; background-position:center center;
@@ -25,7 +31,7 @@ a:not(:hover) {
   display: none;
   font-size: 48px;
   height: 800px;
-  padding: 160px 80px;
+  padding: 10px 10%;
   width: 1280px;
   -webkit-transform: translate3d(0,0,0);
 }

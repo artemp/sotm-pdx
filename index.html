@@ -17,6 +17,10 @@
 </style>
 <body class="overview">
 
+<!-- slide for while people gather :) -->
+<section style="background: #222 url(images/mapnik_cape.jpg); background-repeat:no-repeat; background-position:center center;">
+</section>
+
 <section>
   <h1 class="caption">New Features in Mapnik</h1>
   <iframe width='100%' height='60%' frameBorder='0' src='http://a.tiles.mapbox.com/v3/examples.map-4l7djmvo.html#13.00/45.5154/-122.6752'></iframe>
@@ -183,7 +187,8 @@ Point(-13656028.907842 5703798.985657)
 <section>
 <h2>WKB</h2>
 <pre>
->>> f.geometries().to_wkb(mapnik.wkbByteOrder.XDR)
+>>> bo = mapnik.wkbByteOrder.XDR
+>>> f.geometries().to_wkb(bo)
 ...
 '\x00\x00\x00\x00\x01\xc1j\x0b\xfb\x9d\r\nuAU\xc2\x1d\xbf\x14\xff\x8c'
 </pre>
@@ -197,6 +202,141 @@ Point(-13656028.907842 5703798.985657)
 cx="-13656028.907842" cy="5703798.985657"
 </pre>
 </section>
+
+<section style="background: #222 url(images/sunset.jpg); background-repeat:no-repeat; background-position:center center;">
+  <h1 class="caption">Compositing</h1>
+</section>
+
+<section>
+<h1>Style Level Compositing</h1>
+<h3>(whole canvas)</h3>
+<pre>
+&lt;Style comp-op="color-burn"&gt;
+...
+&lt;/Style&gt;
+</pre>
+</section>
+
+<section>
+<h1>Style Level Opacity</h1>
+<h3>(whole canvas)</h3>
+<pre>
+&lt;Style opacity=".5"&gt;
+...
+&lt;/Style&gt;
+</pre>
+</section>
+
+<section>
+<h1>Feature Level</h1>
+<h3>(each shape against canvas)</h3>
+<pre>
+&lt;Style&gt;
+&lt;Rule&gt;
+&lt;LineSymbolizer comp-op="multiply"/&gt;
+&lt;/Rule&gt;
+&lt;/Style&gt;
+</pre>
+</section>
+
+
+<section style="background: #222 url(images/trees-cabs-crime.png); background-repeat:no-repeat; background-position:center center; background-size:100%;">
+</section>
+
+
+<section style="background: #222 url(images/gclass-without.png); background-repeat:no-repeat; background-position:center center; background-size:100%;">
+  <h1 class="caption">No compositing</h1>
+</section>
+
+
+<section style="background: #222 url(images/gclass-with-compositing.png); background-repeat:no-repeat; background-position:center center; background-size:100%;">
+  <h1 class="caption">style-level opacity + blur + hard-light/tint-bands</h1>
+</section>
+
+<section style="background: #222 url(images/gclass-with-compositing-terrain.png); background-repeat:no-repeat; background-position:center center; background-size:100%;">
+  <h1 class="caption">+terrain</h1>
+</section>
+
+
+<section style="background: #222 url(images/difference-paper-smooth.png); background-repeat:no-repeat; background-position:center center; background-size:100%;">
+</section>
+
+
+<section style="background: #222 url(images/windmill.jpg); background-repeat:no-repeat; background-position:center center; background-size:100%;">
+  <h1 class="caption">SVG Advances</h1>
+</section>
+
+<section>
+<h1>Dynamically restyle SVG</h1>
+<ul>
+  <li>opacity, fill-opacity, stroke-opacity</li>
+  <li>fill and stroke color</li>
+  <li>width/height in px</li>
+</ul>
+</section>
+
+<section>
+<h1>Dynamically transform SVG</h1>
+<pre>
+marker-transform="scale(2),
+  rotate([FIELD]),
+  translate(2,2)"
+</pre>
+</section>
+
+<section>
+<h1>Markers are rebuilt based on SVG</h1>
+<ul>
+  <li>Built in Marker types (ellipse, arrow) are now inline svg - in the future we may inline the Maki set</li>
+  <li>marker-transform also works with images</li>
+</ul>
+</section>
+
+
+<section style="background: #222 url(images/octo-mask.png); background-repeat:no-repeat; background-position:center center;">
+</section>
+
+<section style="background: #222 url(images/tomatoes.jpg); background-repeat:no-repeat; background-position:center center;">
+  <h1 class="caption">New Datasource Plugins</h1>
+</section>
+
+<section>
+<h1>CSV</h1>
+<pre>
+>>> import mapnik
+>>> csv_string = '''wkt,name
+... "POINT(-122.663,45.528)","PDX"'''
+>>> ds = mapnik.Datasource(**
+... { "type":"csv",
+...     "inline":csv_string
+... })
+</pre>
+</section>
+
+
+<section>
+<h1>Python</h1>
+<pre>
+&lt;Datasource&gt;
+  &lt;Parameter name="type">
+    python
+  &lt;/Parameter&gt;
+  &lt;Parameter name="factory">
+    python_file:python_func
+  &lt;/Parameter&gt;
+&lt;/Datasource>
+</pre>
+</section>
+
+
+<section style="background: #222 url(images/bird_watching.jpg); background-repeat:no-repeat; background-position:center center;">
+  <h1 class="caption">Looking to the future</h1>
+</section>
+
+<section>
+<h1>What's next? (tilemill .osm/pbf support, high performance formats, tiled data)</h1>
+</section>
+
 
 
 <section>
