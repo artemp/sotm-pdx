@@ -14,6 +14,18 @@
   text-shadow: 0px 2px 6px rgba(0,0,0,.5);
 }
 
+.caption-small {
+  font-size: 76px;
+  text-align: center;
+  text-shadow: 0px 2px 6px rgba(0,0,0,.5);
+}
+
+.caption-smaller {
+  font-size: 56px;
+  text-align: center;
+  text-shadow: 0px 2px 6px rgba(0,0,0,.5);
+}
+
 </style>
 <body class="overview">
 
@@ -22,14 +34,39 @@
 </section>
 
 <section>
-  <h1 class="caption">New Features in Mapnik</h1>
-  <iframe width='100%' height='60%' frameBorder='0' src='http://a.tiles.mapbox.com/v3/examples.map-4l7djmvo.html#13.00/45.5154/-122.6752'></iframe>
+  <h1 class="caption">New Features in Mapnik >= 2.1</h1>
+<!--
+<iframe width='100%' height='60%' frameBorder='0' src='http://a.tiles.mapbox.com/v3/examples.map-4l7djmvo.html#13.00/45.5154/-122.6752'></iframe>
+-->
+  <h1 class="caption-small">Artem Pavlenko & Dane Springmeyer</h1>
+  <h1 class="caption-smaller">SOTM US PDX 2012</h1>
 </section>
 
 <section>
-  <h1 class="caption" style="font-size:350%">&ge;2.1</h1>
+  <h3>What is Mapnik?</h3>
+  <ul>
+    <li>Cross platform, high performance, C++ map renderer</li>
+    <li>About having fun, making beautiful maps using open data</li>
+    <li>tile.osm.org, mapquest.com, maps.stamen.org, mapbox.com, cartodb and hundreds more…</li>
+  </ul>
 </section>
 
+<section>
+  <h3>Short history of Mapnik</h3>
+  <ul>
+    <li>2005-2008: Production tested and evolved with OSM</li>
+    <li>2009-2010: First stable releases, community grows</li>
+    <li>2011: Major performance push</li>
+    <li>2012: Advanced cartography features</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Artem:</h3>
+  <p>scale_factor, vertex converters, image-filters, vector output</p>
+  <h3>Dane:</h3>
+  <p>compositing, svg, new datasources</p>
+</section>
 
 <section style="background: #222 url(images/durdle-door.jpg); background-repeat:no-repeat; background-position:center center;">
   <h1 class="caption">Scale factor</h1>
@@ -263,7 +300,20 @@ cx="-13656028.907842" cy="5703798.985657"
 
 
 <section style="background: #222 url(images/windmill.jpg); background-repeat:no-repeat; background-position:center center; background-size:100%;">
-  <h1 class="caption">SVG Advances</h1>
+  <h1 class="caption">SVG and Marker Advances</h1>
+</section>
+
+<section>
+<h1>Dynamically transform Markers</h1>
+<pre>
+marker-transform="scale(2),
+  rotate([FIELD]),
+  translate(2,2)"
+</pre>
+<p>^^ CartoCSS</p>
+</section>
+
+<section style="background: #222 url(images/marker-data-driven.png); background-repeat:no-repeat; background-position:center center; background-size:100%;">
 </section>
 
 <section>
@@ -275,29 +325,27 @@ cx="-13656028.907842" cy="5703798.985657"
 </ul>
 </section>
 
-<section>
-<h1>Dynamically transform SVG</h1>
-<pre>
-marker-transform="scale(2),
-  rotate([FIELD]),
-  translate(2,2)"
-</pre>
+<section style="background: #222 url(images/octocat-expressions.png); background-repeat:no-repeat; background-position:center center; background-size:100%;">
 </section>
 
 <section>
-<h1>Markers are rebuilt based on SVG</h1>
-<ul>
-  <li>Built in Marker types (ellipse, arrow) are now inline svg - in the future we may inline the Maki set</li>
-  <li>marker-transform also works with images</li>
-</ul>
+<h3>SVG restyling also works with compositing, image-filters</h3>
 </section>
-
 
 <section style="background: #222 url(images/octo-mask.png); background-repeat:no-repeat; background-position:center center;">
 </section>
 
 <section style="background: #222 url(images/tomatoes.jpg); background-repeat:no-repeat; background-position:center center;">
   <h1 class="caption">New Datasource Plugins</h1>
+</section>
+
+<section>
+<h1>CSV</h1>
+  <ul>
+    <li>destroys myth: mapnik needs a database</li>
+    <li>extremely fast for small and medium sized data</li>
+    <li>supports geodata in x,y fields or WKT/GeoJSON</li>
+  </ul>
 </section>
 
 <section>
@@ -313,6 +361,13 @@ marker-transform="scale(2),
 </pre>
 </section>
 
+<section>
+<h1>Python</h1>
+  <ul>
+    <li>stream your data from anywhere</li>
+    <li>mapnik calls into python, iterator returns features</li>
+  </ul>
+</section>
 
 <section>
 <h1>Python</h1>
@@ -328,19 +383,29 @@ marker-transform="scale(2),
 </pre>
 </section>
 
+<section>
+<h1>GeoJSON</h1>
+  <ul>
+    <li>Ultra optimized - faster than reading via OGR</li>
+    <li>Building block code for remote, tiled json datasource</li>
+  </ul>
+</section>
 
 <section style="background: #222 url(images/bird_watching.jpg); background-repeat:no-repeat; background-position:center center;">
   <h1 class="caption">Looking to the future</h1>
 </section>
 
 <section>
-<h1>What's next? (tilemill .osm/pbf support, high performance formats, tiled data)</h1>
+<h1>What's next?</h1>
+  <ul>
+    <li>Direct .osm/.pbf read support</li>
+    <li>High performance datasource formats (tiled?)</li>
+    <li>Support for every world language</li>
+  </ul>
 </section>
 
-
-
 <section>
-  <h1 class="caption">Join us on <br/> github.com/mapnik <br> Thank you!</h1>
+  <h1 class="caption">Join us on <br/> github.com/mapnik <br><br> Thank you!</h1>
 </section>
 
 <script src="d3.v2.js?2.7.3"></script>
